@@ -19,8 +19,10 @@ body {
 /* Title of the game */
 .title{
 	position: absolute;
+    text-align: center;
 	top: 0;
-	font-size: 4rem;
+    font-size: 120%;
+    margin-bottom: 100px;
 	/*z-index: 2;*/
 }
 
@@ -30,7 +32,7 @@ body {
 	width: 30vw;
 	justify-content: space-evenly;
 	position: absolute;
-	top: 70px;
+	top: 100px;
 	/*z-index: 1;*/
 }
 
@@ -45,12 +47,16 @@ body {
 .options{
 	display: flex;
 	width: 50vw;
-	justify-content: content-position center;
+	justify-content: center;
+	flex-wrap: wrap;
+    align-content: center;
 	margin-top: 2rem;
+	
 }
 
 /* Styling on all three buttons */
 .choice_buttons {
+    font-size: xx-large;
 	padding: 0.8rem;
 	width: 100px;
 	border-radius: 10px;
@@ -93,7 +99,22 @@ body {
 	}
 	.score{
 		position: absolute;
-		top: 200px;
+		top: 100px;
+		width: 100vw;
+	}
+	.options{
+		width: 100vw;
+	}
+}
+
+@media screen and (max-width: 320px)
+{
+	.title{
+		text-align: center;
+	}
+	.score{
+		position: absolute;
+		top: 120px;
 		width: 100vw;
 	}
 	.options{
