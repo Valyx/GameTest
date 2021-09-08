@@ -26,7 +26,7 @@ const game = () => {
 				movesLeft.innerText = `Moves Left: ${10-moves}`;
 				
 
-				const choiceNumber = Math.floor(Math.random()*3);
+				const choiceNumber = Math.floor(Math.random()*5);
 				const computerChoice = computerOptions[choiceNumber];
 
 				// Function to check who wins
@@ -57,7 +57,8 @@ const game = () => {
 				computerScore++;
 				computerScoreBoard.textContent = computerScore;
 
-			}else{
+			}
+			else{
 				result.textContent = 'Player Won'
 				playerScore++;
 				playerScoreBoard.textContent = playerScore;
@@ -68,7 +69,8 @@ const game = () => {
 				result.textContent = 'Computer Won';
 				computerScore++;
 				computerScoreBoard.textContent = computerScore;
-			}else{
+			}
+			else{
 				result.textContent = 'Player Won';
 				playerScore++;
 				playerScoreBoard.textContent = playerScore;
@@ -79,7 +81,8 @@ const game = () => {
 				result.textContent = 'Computer Won';
 				computerScore++;
 				computerScoreBoard.textContent = computerScore;
-			}else{
+			}
+			else{
 				result.textContent = 'Player Won';
 				playerScore++;
 				playerScoreBoard.textContent = playerScore;
