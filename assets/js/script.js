@@ -30,7 +30,7 @@ const game = () => {
 				const computerChoice = computerOptions[choiceNumber];
 
 				// Function to check who wins
-				winner(this.innerText,computerChoice)
+				winner(this.firstElementChild.className, computerChoice)
 				
 				// Calling gameOver function after 10 moves
 				if(moves == 10){
