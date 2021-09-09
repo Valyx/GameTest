@@ -12,10 +12,10 @@ const game = () => {
 		const rockBtn = document.querySelector('.rock');
 		const paperBtn = document.querySelector('.paper');
 		const scissorBtn = document.querySelector('.scissor');
-		const scissorBtn = document.querySelector('.lizzard');
-		const scissorBtn = document.querySelector('.spock');
+		const lizzardBtn = document.querySelector('.lizzard');
+		const spockBtn = document.querySelector('.spock');
 		const playerOptions = [rockBtn,paperBtn,scissorBtn,lizzardBtn,spockBtn];
-		const computerOptions = ['rock','paper','scissors','lizzard','spock']
+		const computerOptions = ['rock','paper','scissors','lizzard','spock'];
 		
 		// Function to start playing game
 		playerOptions.forEach(option => {
@@ -51,41 +51,81 @@ const game = () => {
 		if(player === computer){
 			result.textContent = 'Tie'
 		}
-		else if(player == 'rock'){
-			if(computer == 'paper'){
+		else if(player === 'rock'){
+			if(computer === 'paper'|| computer === 'spock'){
 				result.textContent = 'Computer Won';
 				computerScore++;
 				computerScoreBoard.textContent = computerScore;
 
 			}
-			else{
-				result.textContent = 'Player Won'
-				playerScore++;
-				playerScoreBoard.textContent = playerScore;
-			}
-		}
-		else if(player == 'scissors'){
-			if(computer == 'rock'){
-				result.textContent = 'Computer Won';
-				computerScore++;
-				computerScoreBoard.textContent = computerScore;
-			}
-			else{
+			else if(computer === 'lizzard' || computer === 'lizzard'){
 				result.textContent = 'Player Won';
 				playerScore++;
 				playerScoreBoard.textContent = playerScore;
 			}
+			else{
+				result.textContent = 'Tie'
+			}
 		}
-		else if(player == 'paper'){
-			if(computer == 'scissors'){
+		else if(player === 'scissors'){
+			if(computer === 'rock'|| computer === 'spock'){
 				result.textContent = 'Computer Won';
 				computerScore++;
 				computerScoreBoard.textContent = computerScore;
 			}
-			else{
+			else if(computer === 'lizzard' || computer === 'paper'){
 				result.textContent = 'Player Won';
 				playerScore++;
 				playerScoreBoard.textContent = playerScore;
+			}
+			else{
+				result.textContent = 'Tie'
+			}
+		}
+		else if(player === 'paper'){
+			if(computer === 'scissors'|| computer === 'lizzard'){
+				result.textContent = 'Computer Won';
+				computerScore++;
+				computerScoreBoard.textContent = computerScore;
+			}
+			else if(computer === 'rock' || computer === 'spock'){
+				result.textContent = 'Player Won';
+				playerScore++;
+				playerScoreBoard.textContent = playerScore;
+			}
+			else{
+				result.textContent = 'Tie'
+			}
+		}
+		else if(player === 'lizzard'){
+			if(computer === 'scissors'|| computer === 'rock'){
+				result.textContent = 'Computer Won';
+				computerScore++;
+				computerScoreBoard.textContent = computerScore;
+
+			}
+			else if(computer === 'spock' || computer === 'paper'){
+				result.textContent = 'Player Won';
+				playerScore++;
+				playerScoreBoard.textContent = playerScore;
+			}
+			else{
+				result.textContent = 'Tie'
+			}
+		}
+		else if(player === 'spock'){
+			if(computer === 'lizzard'|| computer === 'paper'){
+				result.textContent = 'Computer Won';
+				computerScore++;
+				computerScoreBoard.textContent = computerScore;
+			}
+			else if(computer === 'rock' || computer === 'scissors'){
+				result.textContent = 'Player Won';
+				playerScore++;
+				playerScoreBoard.textContent = playerScore;
+			}
+			else{
+				result.textContent = 'Tie'
 			}
 		}
 	}
