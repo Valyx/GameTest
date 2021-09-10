@@ -6,8 +6,9 @@ body {
 	background: #082c6c;
 	color: #fff;
 }
+
 /* To center everything in game */
-.game{
+.game {
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
@@ -17,16 +18,16 @@ body {
 }
 
 /*Styling for the title */
-.title{
+.title {
 	position: absolute;
-    text-align: center;
+	text-align: center;
 	top: 0;
-    font-size: 120%;
-    margin-bottom: 100px;
+	font-size: 120%;
+	margin-bottom: 100px;
 }
 
 /* Styling the Score Board */
-.score{
+.score {
 	display: flex;
 	width: 30vw;
 	justify-content: space-evenly;
@@ -37,26 +38,27 @@ body {
 }
 
 /* Score */
-.p-count,.c-count{
+.p-count,
+.c-count {
 	text-align: center;
 	font-size: 1.5rem;
 	margin-top: 1rem;
 }
 
 /* Styling buttons display */
-.options{
+.options {
 	display: flex;
 	width: 50vw;
 	justify-content: center;
 	flex-wrap: wrap;
-    align-content: center;
+	align-content: center;
 	margin-top: 2rem;
-	
+
 }
 
 /* Styling for the buttons */
 .choice_buttons {
-    font-size: xx-large;
+	font-size: xx-large;
 	padding: 0.8rem;
 	width: 100px;
 	border-radius: 10px;
@@ -70,11 +72,12 @@ a {
 	color: brown;
 	text-decoration: none;
 }
+
 .choice_buttons:hover {
-    background: chartreuse;
+	background: chartreuse;
 }
 
-.move{
+.move {
 	font-size: 2rem;
 	font-weight: bold;
 }
@@ -91,38 +94,40 @@ a {
 	cursor: pointer;
 }
 
-.result{
+.result {
 	margin-top: 20px;
 	font-size: 1.2rem;
 }
 
 /* Responsive Design */
-@media screen and (max-width: 612px)
-{
-	.title{
+@media screen and (max-width: 612px) {
+	.title {
 		text-align: center;
 	}
-	.score{
+
+	.score {
 		position: absolute;
 		top: 100px;
 		width: 100vw;
 	}
-	.options{
+
+	.options {
 		width: 100vw;
 	}
 }
 
-@media screen and (max-width: 320px)
-{
-	.title{
+@media screen and (max-width: 320px) {
+	.title {
 		text-align: center;
 	}
-	.score{
+
+	.score {
 		position: absolute;
 		top: 120px;
 		width: 100vw;
 	}
-	.options{
+
+	.options {
 		width: 100vw;
 	}
 }

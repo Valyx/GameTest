@@ -1,137 +1,112 @@
-// app.js
+/* jshint esversion: 8 */
 
-// Complete logic of game inside this function
+/**logic for the whole game inside this function */
 const game = () => {
 	let playerScore = 0;
 	let computerScore = 0;
 	let moves = 0;
 
 
-	// Function to
+	/**Function to alocate the available moves */
 	const playGame = () => {
 		const rockBtn = document.querySelector('.rock');
 		const paperBtn = document.querySelector('.paper');
 		const scissorBtn = document.querySelector('.scissor');
 		const lizzardBtn = document.querySelector('.lizzard');
 		const spockBtn = document.querySelector('.spock');
-		const playerOptions = [rockBtn,paperBtn,scissorBtn,lizzardBtn,spockBtn];
-		const computerOptions = ['fas fa-hand-rock','fas fa-hand-paper','fas fa-hand-scissors','fas fa-hand-lizard','fas fa-hand-spock'];
-		
-		// Function to start playing game
+		const playerOptions = [rockBtn, paperBtn, scissorBtn, lizzardBtn, spockBtn];
+		const computerOptions = ['fas fa-hand-rock', 'fas fa-hand-paper', 'fas fa-hand-scissors', 'fas fa-hand-lizard', 'fas fa-hand-spock'];
+
+		/**Function to start playing game */
 		playerOptions.forEach(option => {
-			option.addEventListener('click',function(){
+			option.addEventListener('click', function () {
 
 				const movesLeft = document.querySelector('.movesleft');
 				moves++;
 				movesLeft.innerText = `Moves Left: ${10-moves}`;
-				
 
-				const choiceNumber = Math.floor(Math.random()*5);
+
+				const choiceNumber = Math.floor(Math.random() * 5);
 				const computerChoice = computerOptions[choiceNumber];
 
-				// Function to check who wins
-				winner(this.firstElementChild.className, computerChoice)
-				
-				// Calling gameOver function after 10 moves
-				if(moves == 10){
-					gameOver(playerOptions,movesLeft);
+				/**Function to check who wins */
+				winner(this.firstElementChild.className, computerChoice);
+
+				/**Calling gameOver function after 10 moves*/
+				if (moves == 10) {
+					gameOver(playerOptions, movesLeft);
 				}
 			})
 		})
-		
+
 	}
 
-	// Function to decide winner
-	const winner = (player,computer) => {
+	/**Function to decide winner */
+	const winner = (player, computer) => {
 		const result = document.querySelector('.result');
 		const playerScoreBoard = document.querySelector('.p-count');
 		const computerScoreBoard = document.querySelector('.c-count');
 		player = player.toLowerCase();
 		computer = computer.toLowerCase();
-		if(player === computer){
+		if (player === computer) {
 			result.textContent = 'Tie'
-		}
-		else if(player === 'fas fa-hand-rock'){
-			if(computer === 'fas fa-hand-paper'|| computer === 'fas fa-hand-spock'){
+		} else if (player === 'fas fa-hand-rock') {
+			if (computer === 'fas fa-hand-paper' || computer === 'fas fa-hand-spock') {
 				result.textContent = 'Computer Won';
 				computerScore++;
 				computerScoreBoard.textContent = computerScore;
 
-			}
-			else if(computer === 'fas fa-hand-scissors' || computer === 'fas fa-hand-lizard'){
+			} else {
 				result.textContent = 'Player Won';
 				playerScore++;
 				playerScoreBoard.textContent = playerScore;
 			}
-			else{
-				result.textContent = 'Tie'
-			}
-		}
-		else if(player === 'fas fa-hand-scissors'){
-			if(computer === 'fas fa-hand-rock'|| computer === 'fas fa-hand-spock'){
+		} else if (player === 'fas fa-hand-scissors') {
+			if (computer === 'fas fa-hand-rock' || computer === 'fas fa-hand-spock') {
 				result.textContent = 'Computer Won';
 				computerScore++;
 				computerScoreBoard.textContent = computerScore;
-			}
-			else if(computer === 'fas fa-hand-lizard' || computer === 'fas fa-hand-paper'){
+			} else {
 				result.textContent = 'Player Won';
 				playerScore++;
 				playerScoreBoard.textContent = playerScore;
 			}
-			else{
-				result.textContent = 'Tie'
-			}
-		}
-		else if(player === 'fas fa-hand-paper'){
-			if(computer === 'fas fa-hand-scissors'|| computer === 'fas fa-hand-lizard'){
+		} else if (player === 'fas fa-hand-paper') {
+			if (computer === 'fas fa-hand-scissors' || computer === 'fas fa-hand-lizard') {
 				result.textContent = 'Computer Won';
 				computerScore++;
 				computerScoreBoard.textContent = computerScore;
-			}
-			else if(computer === 'fas fa-hand-rock' || computer === 'fas fa-hand-spock'){
+			} else {
 				result.textContent = 'Player Won';
 				playerScore++;
 				playerScoreBoard.textContent = playerScore;
 			}
-			else{
-				result.textContent = 'Tie'
-			}
-		}
-		else if(player === 'fas fa-hand-lizard'){
-			if(computer === 'fas fa-hand-scissors'|| computer === 'fas fa-hand-rock'){
+		} else if (player === 'fas fa-hand-lizard') {
+			if (computer === 'fas fa-hand-scissors' || computer === 'fas fa-hand-rock') {
 				result.textContent = 'Computer Won';
 				computerScore++;
 				computerScoreBoard.textContent = computerScore;
 
-			}
-			else if(computer === 'fas fa-hand-spock' || computer === 'fas fa-hand-paper'){
+			} else {
 				result.textContent = 'Player Won';
 				playerScore++;
 				playerScoreBoard.textContent = playerScore;
 			}
-			else{
-				result.textContent = 'Tie'
-			}
-		}
-		else if(player === 'fas fa-hand-spock'){
-			if(computer === 'fas fa-hand-lizard'|| computer === 'fas fa-hand-paper'){
+		} else if (player === 'fas fa-hand-spock') {
+			if (computer === 'fas fa-hand-lizard' || computer === 'fas fa-hand-paper') {
 				result.textContent = 'Computer Won';
 				computerScore++;
 				computerScoreBoard.textContent = computerScore;
-			}
-			else if(computer === 'fas fa-hand-rock' || computer === 'fas fa-hand-scissors'){
+			} else {
 				result.textContent = 'Player Won';
 				playerScore++;
 				playerScoreBoard.textContent = playerScore;
-			}
-			else{
-				result.textContent = 'Tie'
 			}
 		}
 	}
 
-	// Function to run when game is over
-	const gameOver = (playerOptions,movesLeft) => {
+	/**Function to run when game is over*/
+	const gameOver = (playerOptions, movesLeft) => {
 
 		const chooseMove = document.querySelector('.move');
 		const result = document.querySelector('.result');
@@ -141,37 +116,35 @@ const game = () => {
 			option.style.display = 'none';
 		})
 
-	
+
 		chooseMove.innerText = 'Game Over!!'
 		movesLeft.style.display = 'none';
 
-		if(playerScore > computerScore){
+		if (playerScore > computerScore) {
 			result.style.fontSize = '2rem';
 			result.innerText = 'You Won The Game'
 			result.style.color = '#308D46';
-		}
-		else if(playerScore < computerScore){
+		} else if (playerScore < computerScore) {
 			result.style.fontSize = '2rem';
 			result.innerText = 'You Lost The Game';
 			result.style.color = 'red';
-		}
-		else{
+		} else {
 			result.style.fontSize = '2rem';
 			result.innerText = 'Tie';
 			result.style.color = 'grey'
 		}
 		reloadBtn.innerText = 'Restart';
 		reloadBtn.style.display = 'flex'
-		reloadBtn.addEventListener('click',() => {
+		reloadBtn.addEventListener('click', () => {
 			window.location.reload();
 		})
 	}
 
 
-	// Calling playGame function inside game
+	/** Calling playGame function inside game */
 	playGame();
-	
+
 }
 
-// Calling the game function
+/** Calling the game function*/
 game();
